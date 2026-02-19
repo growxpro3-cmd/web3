@@ -234,7 +234,7 @@ export const testimonials = [
     name: "Vikram Singh",
     role: "Full-time Trader",
     avatar: "VS",
-    content: "I've been using GrowXPro for 6 months now. The premium crypto package has given me returns I never thought possible.",
+    content: "I've been using GroowXPro for 6 months now. The premium crypto package has given me returns I never thought possible.",
     rating: 5
   }
 ];
