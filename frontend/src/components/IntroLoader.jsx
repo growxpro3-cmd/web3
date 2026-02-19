@@ -123,7 +123,7 @@ const IntroLoader = ({ onComplete }) => {
           </div>
         </div>
         <p ref={taglineRef} className="text-xl md:text-2xl text-gray-400 tracking-widest uppercase">
-          Grow Like a Pro
+          Groow Like a Pro
         </p>
       </div>
 
