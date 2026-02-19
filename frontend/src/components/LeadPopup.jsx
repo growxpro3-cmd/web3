@@ -185,43 +185,31 @@ const LeadPopup = () => {
                   {errors.mobile && <p className="text-red-400 text-xs mt-1 ml-1">{errors.mobile}</p>}
                 </div>
 
-                {/* Segment Dropdown */}
+                {/* Segment Dropdown - native select for reliable mobile scroll picker */}
                 <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full px-4 py-3 rounded-xl text-sm text-left flex items-center justify-between outline-none transition-all duration-200"
+                  <select
+                    value={formData.segment}
+                    onChange={e => {
+                      setFormData({ ...formData, segment: e.target.value });
+                      setErrors({ ...errors, segment: undefined });
+                    }}
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 appearance-none cursor-pointer"
                     style={{
                       background: 'rgba(255,255,255,0.05)',
-                      border: `1px solid ${errors.segment ? '#ef4444' : dropdownOpen ? '#a855f7' : 'rgba(139, 92, 246, 0.15)'}`,
-                      color: formData.segment ? '#fff' : '#6b7280'
+                      border: `1px solid ${errors.segment ? '#ef4444' : 'rgba(139, 92, 246, 0.15)'}`,
+                      color: formData.segment ? '#fff' : '#6b7280',
+                      WebkitAppearance: 'none',
+                      MozAppearance: 'none',
                     }}
+                    onFocus={e => e.target.style.borderColor = '#a855f7'}
+                    onBlur={e => e.target.style.borderColor = errors.segment ? '#ef4444' : 'rgba(139, 92, 246, 0.15)'}
                   >
-                    <span>{formData.segment || 'Select Segment'}</span>
-                    <ChevronDown size={16} className={`text-gray-400 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  {dropdownOpen && (
-                    <div className="absolute top-full left-0 right-0 mt-1 rounded-xl overflow-hidden z-20"
-                      style={{ background: '#1a1a3e', border: '1px solid rgba(139, 92, 246, 0.25)', boxShadow: '0 12px 40px rgba(0,0,0,0.5)' }}>
-                      {segments.map(seg => (
-                        <button
-                          key={seg}
-                          type="button"
-                          onClick={() => {
-                            setFormData({ ...formData, segment: seg });
-                            setDropdownOpen(false);
-                            setErrors({ ...errors, segment: undefined });
-                          }}
-                          className="w-full px-4 py-2.5 text-sm text-left text-gray-300 hover:text-white transition-colors"
-                          style={{ background: formData.segment === seg ? 'rgba(168, 85, 247, 0.15)' : 'transparent' }}
-                          onMouseEnter={e => e.target.style.background = 'rgba(168, 85, 247, 0.1)'}
-                          onMouseLeave={e => e.target.style.background = formData.segment === seg ? 'rgba(168, 85, 247, 0.15)' : 'transparent'}
-                        >
-                          {seg}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                    <option value="" disabled style={{ background: '#1a1a3e', color: '#6b7280' }}>Select Segment</option>
+                    {segments.map(seg => (
+                      <option key={seg} value={seg} style={{ background: '#1a1a3e', color: '#fff' }}>{seg}</option>
+                    ))}
+                  </select>
+                  <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                   {errors.segment && <p className="text-red-400 text-xs mt-1 ml-1">{errors.segment}</p>}
                 </div>
 
