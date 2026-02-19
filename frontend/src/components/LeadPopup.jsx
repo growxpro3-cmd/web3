@@ -16,12 +16,9 @@ const LeadPopup = () => {
   const segments = ['Commodity', 'Currency', 'Equity', 'Crypto'];
 
   useEffect(() => {
-    const dismissed = localStorage.getItem(STORAGE_KEY);
-    if (dismissed) return;
-
     const timer = setTimeout(() => {
       setVisible(true);
-    }, 5000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
