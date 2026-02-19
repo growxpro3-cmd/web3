@@ -75,7 +75,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs mb-1">Email</p>
-                  <p className="text-gray-300 text-sm">growx@gmail.com</p>
+                  <p className="text-gray-300 text-sm">groowxpro@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
