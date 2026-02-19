@@ -4,11 +4,18 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const scrollTo = (id) => {
@@ -17,15 +24,17 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const showBg = isScrolled || isMobile || mobileMenuOpen;
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'py-3' : 'py-4'
       }`}
       style={{
-        background: isScrolled || mobileMenuOpen ? 'rgba(10, 10, 26, 0.95)' : (typeof window !== 'undefined' && window.innerWidth < 768 ? 'rgba(10, 10, 26, 0.85)' : 'transparent'),
-        backdropFilter: isScrolled || (typeof window !== 'undefined' && window.innerWidth < 768) ? 'blur(20px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(139, 92, 246, 0.1)' : 'none'
+        background: showBg ? 'rgba(10, 10, 26, 0.95)' : 'transparent',
+        backdropFilter: showBg ? 'blur(20px)' : 'none',
+        borderBottom: showBg ? '1px solid rgba(139, 92, 246, 0.1)' : 'none'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +47,7 @@ const Navbar = () => {
             </div>
             <span className="text-xl font-bold">
               <span style={{ background: 'linear-gradient(135deg, #a855f7, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                GrowX
+                GroowX
               </span>
               <span className="text-white">Pro</span>
             </span>
