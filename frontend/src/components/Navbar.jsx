@@ -23,8 +23,8 @@ const Navbar = () => {
         isScrolled ? 'py-3' : 'py-4'
       }`}
       style={{
-        background: isScrolled ? 'rgba(10, 10, 26, 0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        background: isScrolled || mobileMenuOpen ? 'rgba(10, 10, 26, 0.95)' : (typeof window !== 'undefined' && window.innerWidth < 768 ? 'rgba(10, 10, 26, 0.85)' : 'transparent'),
+        backdropFilter: isScrolled || (typeof window !== 'undefined' && window.innerWidth < 768) ? 'blur(20px)' : 'none',
         borderBottom: isScrolled ? '1px solid rgba(139, 92, 246, 0.1)' : 'none'
       }}
     >
