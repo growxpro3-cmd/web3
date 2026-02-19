@@ -202,7 +202,7 @@ export const testimonials = [
     name: "Rajesh Kumar",
     role: "Crypto Trader",
     avatar: "RK",
-    content: "GrowXPro has completely transformed my trading journey. Their crypto signals are incredibly accurate and the 24/7 support is phenomenal!",
+    content: "GroowXPro has completely transformed my trading journey. Their crypto signals are incredibly accurate and the 24/7 support is phenomenal!",
     rating: 5
   },
   {
