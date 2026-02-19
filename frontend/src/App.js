@@ -12,6 +12,7 @@ import Testimonials from './components/Testimonials';
 import TradingPartner from './components/TradingPartner';
 import ConnectWithUs from './components/ConnectWithUs';
 import Footer from './components/Footer';
+import LeadPopup from './components/LeadPopup';
 
 const HomePage = ({ showIntro, setShowIntro }) => {
   return (
@@ -27,6 +28,7 @@ const HomePage = ({ showIntro, setShowIntro }) => {
         <TradingPartner />
         <ConnectWithUs />
         <Footer />
+        {!showIntro && <LeadPopup />}
       </div>
     </>
   );
