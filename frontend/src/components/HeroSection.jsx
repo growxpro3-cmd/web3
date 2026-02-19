@@ -82,14 +82,14 @@ const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div>
+          <div className="text-center lg:text-left">
             <div ref={titleRef}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm"
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm"
                 style={{ background: 'rgba(168, 85, 247, 0.15)', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
                 <Zap size={14} className="text-purple-400" />
                 <span className="text-purple-300">#1 Trading Signal Provider</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
                 Trade Smarter with{' '}
                 <span style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Expert Signals
@@ -97,14 +97,14 @@ const HeroSection = () => {
               </h1>
             </div>
 
-            <p ref={subtitleRef} className="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
+            <p ref={subtitleRef} className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
               Join thousands of successful traders. Get real-time crypto, equity, commodity & forex signals with up to 92% accuracy.
             </p>
 
-            <div ref={ctaRef} className="flex flex-wrap gap-4 mb-12">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-12">
               <button
                 onClick={() => scrollTo('packages')}
-                className="group px-8 py-3.5 rounded-full text-white font-semibold flex items-center gap-2 transition-all duration-300 hover:shadow-xl"
+                className="group w-full sm:w-auto px-8 py-3 sm:py-3.5 rounded-full text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-xl text-sm sm:text-base"
                 style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)', boxShadow: '0 0 30px rgba(168, 85, 247, 0.3)' }}
               >
                 Start Trading
@@ -112,7 +112,7 @@ const HeroSection = () => {
               </button>
               <button
                 onClick={() => scrollTo('markets')}
-                className="px-8 py-3.5 rounded-full text-white font-semibold flex items-center gap-2 border border-white/20 hover:border-white/40 transition-all duration-300"
+                className="w-full sm:w-auto px-8 py-3 sm:py-3.5 rounded-full text-white font-semibold flex items-center justify-center gap-2 border border-white/20 hover:border-white/40 transition-all duration-300 text-sm sm:text-base"
                 style={{ background: 'rgba(255,255,255,0.05)' }}
               >
                 <TrendingUp size={18} />
@@ -120,20 +120,20 @@ const HeroSection = () => {
               </button>
             </div>
 
-            <div ref={statsRef} className="flex gap-8">
+            <div ref={statsRef} className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8">
               {[
                 { icon: Shield, label: 'SEBI Registered', value: 'Certified' },
                 { icon: BarChart3, label: 'Accuracy', value: '92%+' },
                 { icon: TrendingUp, label: 'Active Traders', value: '5000+' }
               ].map((stat, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center"
+                <div key={i} className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center"
                     style={{ background: 'rgba(168, 85, 247, 0.15)' }}>
-                    <stat.icon size={18} className="text-purple-400" />
+                    <stat.icon size={16} className="text-purple-400 sm:w-[18px] sm:h-[18px]" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">{stat.value}</p>
-                    <p className="text-gray-500 text-xs">{stat.label}</p>
+                    <p className="text-white font-semibold text-xs sm:text-sm">{stat.value}</p>
+                    <p className="text-gray-500 text-[10px] sm:text-xs">{stat.label}</p>
                   </div>
                 </div>
               ))}
