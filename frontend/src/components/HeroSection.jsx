@@ -122,7 +122,7 @@ const HeroSection = () => {
 
             <div ref={statsRef} className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-8">
               {[
-                { icon: Shield, label: 'SEBI Registered', value: 'Certified' },
+                { icon: Shield, label: 'NISM Registered', value: 'Certified' },
                 { icon: BarChart3, label: 'Accuracy', value: '92%+' },
                 { icon: TrendingUp, label: 'Active Traders', value: '5000+' }
               ].map((stat, i) => (
