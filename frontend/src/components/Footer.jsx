@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">
                 <span style={{ background: 'linear-gradient(135deg, #a855f7, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  GrowX
+                  GroowX
                 </span>
                 <span className="text-white">Pro</span>
               </span>
