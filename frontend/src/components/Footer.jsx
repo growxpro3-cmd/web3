@@ -97,7 +97,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-xs">
-            © 2025 GrowXPro. All rights reserved.
+            © 2025 GroowXPro. All rights reserved.
           </p>
           <div className="flex gap-6">
             {['Privacy Policy', 'Terms of Service', 'Disclaimer'].map(text => (
