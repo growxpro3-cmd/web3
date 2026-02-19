@@ -77,7 +77,6 @@ const LeadPopup = () => {
       });
       if (res.ok) {
         setSubmitted(true);
-        localStorage.setItem(STORAGE_KEY, 'true');
       } else {
         setErrors({ form: 'Something went wrong. Please try again.' });
       }
