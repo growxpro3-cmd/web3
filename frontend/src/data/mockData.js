@@ -1,4 +1,4 @@
-// GrowXPro Mock Data
+// GroowXPro Mock Data
 
 export const marketData = [
   {
